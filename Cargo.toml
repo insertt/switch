@@ -1,0 +1,17 @@
+[package]
+name = "switch"
+version = "0.1.0"
+authors = ["insertt <inserttdev@gmail.com>"]
+repository = "https://github.com/insertt/switch/"
+license = "MIT"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.98"
+serde_derive = "1.0.98"
+serde_json = { version = "1.0.40", features = ["preserve_order"] }
+dirs = "2.0.2"
+ttyecho = "0.1.2"
+structopt = "0.2.18"
