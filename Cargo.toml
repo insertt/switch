@@ -15,3 +15,4 @@ serde_json = { version = "1.0.40", features = ["preserve_order"] }
 dirs = "2.0.2"
 ttyecho = "0.1.2"
 structopt = "0.2.18"
+winapi = { version = "0.3.7", features = ["winuser"] }
