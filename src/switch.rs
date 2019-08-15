@@ -162,8 +162,18 @@ impl SwitchCategory {
         }
     }
 
-    pub fn add_variable<S: Into<String>>(&mut self, key: S, value: S) {
+    pub fn add_variable<S: Into<String>>(&mut self, key: S, value: S) -> bool {
+        let key = key.into();
+        let value = value.into();
+
+        for variable in self.variables.iter() {
+            if variable.key == key {
+                return false;
+            }
+        }
+
         self.variables.push(SwitchVariable::new(key, value));
+        true
     }
 
     pub fn remove_variable<S: Into<String>>(&mut self, key: S) -> bool {

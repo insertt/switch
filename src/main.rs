@@ -24,8 +24,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut registry = SwitchRegistry::deserialize_from_file(&registry_dir)?;
 
     match SwitchCommand::from_args() {
-        Add { category, name, value } => {
-            command::add(&mut registry, category, name, value);
+        Set { category, name, value } => {
+            command::set(&mut registry, category, name, value);
             registry.serialize_to_file(&registry_dir)?;
         },
         Remove { category, name } => {

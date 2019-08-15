@@ -4,12 +4,15 @@ use std::process::{ exit };
 use crate::switch::{ SwitchRegistry, SwitchCategory };
 use ttyecho::{ ttyecho };
 
-pub fn add(registry: &mut SwitchRegistry, category_name: String, name: String, value: String) {
+pub fn set(registry: &mut SwitchRegistry, category_name: String, name: String, value: String) {
     let category = registry.get_category(&category_name);
 
     match category {
         Some(category) => {
-            category.add_variable(&name, &value);
+            if ! category.add_variable(&name, &value) {
+                eprintln!("There is already registered environment variable with key '{}' in category '{}'!", &name, &category_name);
+                return;
+            }
         }
         None => {
             let mut category = SwitchCategory::new(&category_name);

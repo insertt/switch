@@ -3,12 +3,12 @@ use structopt::StructOpt;
 #[derive(StructOpt, Debug)]
 #[structopt(name = "switch", author = "", about = "Switch between environment variables in current session easily.")]
 pub enum SwitchCommand {
-    #[structopt(name = "add")]
+    #[structopt(name = "set")]
     /**
-     * Add environment variable to given category.
+     * Set environment variable in given category.
      * Note: It will create category if there isn't declared one with given name.
      */
-    Add {
+    Set {
         #[structopt(name = "category", help = "Category of declared environment variable")]
         category: String,
         #[structopt(name = "name", help = "Name of declared environment variable")]
