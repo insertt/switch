@@ -18,9 +18,9 @@ fn main() -> Result<(), Box<dyn Error>> {
             dir.push(REGISTRY_PATH);
             dir
         },
-        _ => panic!()
+        _ => panic!("Could not retrieve home directory")
     };
-    
+
     let mut registry = SwitchRegistry::deserialize_from_file(&registry_dir)?;
 
     match SwitchCommand::from_args() {
